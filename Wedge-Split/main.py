@@ -39,7 +39,7 @@ notch_width = data.notch_width
 
 #The regularization length and mesh size
 lch = data.lch
-eps, h = data.eps, 2#data.h
+eps, h = data.eps, data.h
 delta = data.delta
 
 if comm.rank == 0:
