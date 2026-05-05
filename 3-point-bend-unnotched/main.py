@@ -54,19 +54,17 @@ samesizecount=1
 terminate=0
 
 # For this problem, we create a quarter of the domain and apply symmetric boundary conditions on the x=0 and z=0 surfaces. You can create a different mesh for your problem using gmsh or other mesh generators. Make sure to save the mesh in XDMF format and change the filename in the following lines when reading the mesh.
-# domain = createMesh.mesh3pt(comm, L, H, D, Span, x_load, h)                      # Create mesh and save as XDMF file.
+domain = createMesh.mesh3pt(comm, L, H, D, Span, x_load, h)                      # Create mesh and save as XDMF file.
 
-if comm.rank == 0:
-    print("reading mesh...")
-
-with XDMFFile(comm, "Mortar3ptunnotched_mesh3D_eps20.xdmf", "r") as xdmf:
-    domain = xdmf.read_mesh(name="mesh")
+# Read mesh if you have already created the mesh and saved as XDMF file. Comment out the above line and uncomment the following lines to read the mesh from XDMF file. Make sure to change the filename if you have a different name for your mesh file.
+# if comm.rank == 0:
+#     print("reading mesh...")
 
 # with XDMFFile(comm, "your_mesh.xdmf", "r") as xdmf:
 #     domain = xdmf.read_mesh(name="mesh")
 
-if comm.rank == 0:
-    print("mesh read.")
+# if comm.rank == 0:
+#     print("mesh read.")
 
 domain.topology.create_connectivity(domain.topology.dim-1, domain.topology.dim)
 
