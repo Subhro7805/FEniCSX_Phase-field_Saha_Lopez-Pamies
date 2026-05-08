@@ -143,10 +143,10 @@ ds, dx = boundary.dintegration(domain, facet_tag)
 
 boundary_conditions = [boundary.BoundaryCondition(domain, "loading", 1, facet_tag, V_u, V_1, c1)]
 
-# phase-field boundary condition
+# Phase-field boundary condition
 bc_z = boundary.bc_phasefield(domain, V_z, outer, crackfront)
 
-# Dirichlet boundary condition
+# Displacement boundary condition
 bc_u = boundary.bc_dirichlet(domain, V_u, boundary_conditions, rightbottom, loading, rightsupport, Xsym, Zsym)
 
 # Initialize the functions
