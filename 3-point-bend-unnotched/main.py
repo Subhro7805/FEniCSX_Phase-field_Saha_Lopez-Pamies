@@ -141,7 +141,7 @@ boundary_conditions = [boundary.BoundaryCondition(domain, "loading", 1, facet_ta
 # phase-field boundary condition
 bc_z = boundary.bc_phasefield(domain, V_z, outer)
 
-# Dirichlet boundary condition
+# Displacement boundary condition
 bc_u = boundary.bc_dirichlet(domain, V_u, boundary_conditions, rightbottom, loading, rightsupport, Xsym, Zsym)
 
 # Initialize the functions
